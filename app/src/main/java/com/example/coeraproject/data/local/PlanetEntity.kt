@@ -19,6 +19,6 @@ data class PlanetEntity(
     val surfaceWater: String,
     val terrain: String,
     val url: String,
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int = 0
 )

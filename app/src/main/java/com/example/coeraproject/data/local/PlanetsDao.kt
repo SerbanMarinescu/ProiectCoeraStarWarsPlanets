@@ -11,6 +11,6 @@ interface PlanetsDao {
     @Upsert
     suspend fun upsertPlanets(planet: List<PlanetEntity>)
 
-    @Query("SELECT * FROM PlanetEntity")
+    @Query("SELECT * FROM PlanetEntity ORDER BY films")
     fun getAllPlanets(): Flow<List<PlanetEntity>>
 }

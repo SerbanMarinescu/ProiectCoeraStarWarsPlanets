@@ -9,6 +9,7 @@ import com.example.coeraproject.data.local.PlanetsDatabase
 import com.example.coeraproject.data.remote.PlanetsAPI
 import com.example.coeraproject.data.repository.PlanetsRepository
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,7 +25,14 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object PlanetsModule {
 
-
+    @Provides
+    @Singleton
+    fun provideMoshi(): Moshi {
+        return Moshi
+            .Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+    }
 
     @Singleton
     @Provides
